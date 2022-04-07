@@ -469,7 +469,7 @@ FodyWeavers.xsd
 # visual studio 프로젝트 파일
 *.vcxproj
 *.vcxproj.filters
-
+*.sln
 # 아이콘
 *.rc
 *.ico
