@@ -467,12 +467,12 @@ FodyWeavers.xsd
 *.msp
 
 # visual studio 프로젝트 파일
-.vcxproj
-.vcxproj.filter
+*.vcxproj
+*.vcxproj.filter
 
 # 아이콘
-.rc
-.ico
+*.rc
+*.ico
 
 # JetBrains Rider
 *.sln.iml
