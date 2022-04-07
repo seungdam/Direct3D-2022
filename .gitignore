@@ -468,7 +468,7 @@ FodyWeavers.xsd
 
 # visual studio 프로젝트 파일
 *.vcxproj
-*.vcxproj.filter
+*.vcxproj.filters
 
 # 아이콘
 *.rc
