@@ -1,4 +1,5 @@
 #pragma once
+#include "Scene.h"
 #include "Timer.h"
 class CGameFramework {
 private:
@@ -38,15 +39,22 @@ private:
 	ID3D12PipelineState *m_pd3dPipelineState;
 	//그래픽스 파이프라인 상태 객체에 대한 인터페이스 포인터이다.
 	ID3D12Fence *m_pd3dFence;
-	UINT64 m_nFenceValue;
+	UINT64 m_nFenceValues[m_nSwapChainBuffers];
 	HANDLE m_hFenceEvent;
 	//펜스 인터페이스 포인터, 펜스의 값, 이벤트 핸들이다. 
 	D3D12_VIEWPORT m_d3dViewport;
 	D3D12_RECT m_d3dScissorRect;
 	//뷰포트와 씨저 사각형이다. 
+
+	// 씬
+	CScene* m_pScene;
 public:
 	CGameFramework();
 	~CGameFramework();
+	// 씬 관련 멤버함수
+	void MoveToNextFrame();
+
+
 	bool OnCreate(HINSTANCE hInstance, HWND hMainWnd);
 	//프레임워크를 초기화하는 함수이다(주 윈도우가 생성되면 호출된다). 
 	void OnDestroy();
