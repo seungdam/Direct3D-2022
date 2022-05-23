@@ -3,6 +3,7 @@
 #define FRAME_BUFFER_WIDTH 800
 #define FRAME_BUFFER_HEIGHT 600
 
+
 // 게임 프레임 워크의 뼈대를 나타낸다. 
 // direct3d 디바이스를 생성/ 관리하고 화면 출력을 위한 처리 (애니메이션 / 사용자 입력 / 객체 생성 소멸)
 class CGameFramework {
