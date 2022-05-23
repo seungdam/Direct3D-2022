@@ -1,6 +1,10 @@
 #pragma once
+#include "Timer.h"
 class CGameFramework {
 private:
+	CGameTimer m_GameTimer;
+	_TCHAR m_pszFrameRate[50];
+
 	HINSTANCE m_hInstance;
 	HWND m_hWnd;
 	int m_nWndClientWidth;

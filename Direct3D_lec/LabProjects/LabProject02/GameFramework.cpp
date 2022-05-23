@@ -2,6 +2,9 @@
 #include "GameFramework.h"
 
 CGameFramework::CGameFramework() {
+
+	_tcscpy_s(m_pszFrameRate, _T("LapProject ("));
+
 	m_pdxgiFactory = NULL;
 	m_pdxgiSwapChain = NULL;
 	m_pd3dDevice = NULL;
@@ -405,6 +408,8 @@ void CGameFramework::WaitForGpuComplete()
 
 void CGameFramework::FrameAdvance()
 {
+	m_GameTimer.Tick(0.0f);
+
 	ProcessInput();
 	AnimateObjects();
 	HRESULT hResult = m_pd3dCommandAllocator->Reset();
@@ -473,11 +478,13 @@ void CGameFramework::FrameAdvance()
 	dxgiPresentParameters.pDirtyRects = NULL;
 	dxgiPresentParameters.pScrollRect = NULL;
 	dxgiPresentParameters.pScrollOffset = NULL;
-	m_pdxgiSwapChain->Present1(1, 0, &dxgiPresentParameters);
+	m_pdxgiSwapChain->Present1(0, 0, &dxgiPresentParameters);
 	/*스왑체인을 프리젠트한다. 프리젠트를 하면 현재 렌더 타겟(후면버퍼)의 내용이 전면버퍼로 옮겨지고 렌더 타겟 인
 	덱스가 바뀔 것이다.*/
-
 	m_nSwapChainBufferIndex = m_pdxgiSwapChain->GetCurrentBackBufferIndex();
+	
+	m_GameTimer.GetFrameRate(m_pszFrameRate + 12, 37);
+	::SetWindowText(m_hWnd, m_pszFrameRate);
 }
 
 
